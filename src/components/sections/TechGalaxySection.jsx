@@ -360,7 +360,7 @@ export default function TechGalaxySection() {
       />
 
       <div className="section-container relative z-10">
-        <SectionLabel number="08" title="GALAXY MAP" />
+        <SectionLabel number="09" title="GALAXY MAP" />
 
         {/* Heading */}
         <motion.div

@@ -105,7 +105,7 @@ export default function ExperienceSection() {
       />
 
       <div className="section-container">
-        <SectionLabel number="09" title="ORBIT" />
+        <SectionLabel number="10" title="ORBIT" />
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}

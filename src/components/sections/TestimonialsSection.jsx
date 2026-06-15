@@ -70,7 +70,7 @@ export default function TestimonialsSection() {
       />
 
       <div className="section-container">
-        <SectionLabel number="10" title="TRANSMISSIONS" />
+        <SectionLabel number="11" title="TRANSMISSIONS" />
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}

@@ -17,7 +17,7 @@ export default function AboutSection() {
       />
 
       <div className="section-container">
-        <SectionLabel number="05" title="GENESIS" />
+        <SectionLabel number="06" title="GENESIS" />
 
         <div className="grid gap-16 lg:grid-cols-[1fr,1.2fr] lg:gap-24 items-start">
           {/* Left — Visual Element */}

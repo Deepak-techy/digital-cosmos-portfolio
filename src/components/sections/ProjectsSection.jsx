@@ -116,7 +116,7 @@ export default function ProjectsSection() {
       />
 
       <div className="section-container">
-        <SectionLabel number="06" title="STAR MAP" />
+        <SectionLabel number="07" title="STAR MAP" />
 
         {/* Section heading */}
         <motion.div

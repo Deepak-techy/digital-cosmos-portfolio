@@ -10,6 +10,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import OriginSection from "@/components/sections/OriginSection";
 import GrowthSection from "@/components/sections/GrowthSection";
 import EduOneSection from "@/components/sections/EduOneSection";
+import EngineerSection from "@/components/sections/EngineerSection";
 import AboutSection from "@/components/sections/AboutSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import AchievementsSection from "@/components/sections/AchievementsSection";
@@ -42,7 +43,10 @@ export default function Home() {
           {/* Act III — Flagship */}
           <EduOneSection />
 
-          {/* Act IV — Present Day */}
+          {/* Act IV — Convergence */}
+          <EngineerSection />
+
+          {/* Act V — Present Day */}
           <AboutSection />
           <ProjectsSection />
           <AchievementsSection />
