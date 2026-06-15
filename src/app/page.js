@@ -13,7 +13,7 @@ import EduOneSection from "@/components/sections/EduOneSection";
 import AboutSection from "@/components/sections/AboutSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import AchievementsSection from "@/components/sections/AchievementsSection";
-import SkillsSection from "@/components/sections/SkillsSection";
+import TechGalaxySection from "@/components/sections/TechGalaxySection";
 import ExperienceSection from "@/components/sections/ExperienceSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import ContactSection from "@/components/sections/ContactSection";
@@ -46,7 +46,7 @@ export default function Home() {
           <AboutSection />
           <ProjectsSection />
           <AchievementsSection />
-          <SkillsSection />
+          <TechGalaxySection />
           <ExperienceSection />
           <TestimonialsSection />
           <ContactSection />

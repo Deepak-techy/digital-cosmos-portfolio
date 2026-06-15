@@ -389,38 +389,153 @@ export const ACHIEVEMENTS = [
   },
 ];
 
-export const SKILLS = [
-  {
-    category: "Frontend",
-    icon: "Monitor",
-    items: ["React", "Next.js", "Vue.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-  },
-  {
-    category: "Backend",
-    icon: "Server",
-    items: ["Node.js", "Go", "Python", "Rust", "GraphQL", "REST APIs"],
-  },
-  {
-    category: "Cloud & DevOps",
-    icon: "Cloud",
-    items: ["AWS", "Docker", "Kubernetes", "Terraform", "CI/CD", "Monitoring"],
-  },
-  {
-    category: "Databases",
-    icon: "Database",
-    items: ["PostgreSQL", "MongoDB", "Redis", "DynamoDB", "Elasticsearch"],
-  },
-  {
-    category: "Tools & Workflow",
-    icon: "Wrench",
-    items: ["Git", "Linux", "Figma", "Jira", "VS Code", "Neovim"],
-  },
-  {
-    category: "Architecture",
-    icon: "Network",
-    items: ["Microservices", "Event-Driven", "Serverless", "System Design", "API Design"],
-  },
-];
+export const TECH_GALAXY = {
+  // Three orbital rings: inner (core), middle (framework), outer (frontier)
+  rings: [
+    {
+      id: "inner",
+      label: "Core",
+      radius: 28, // percentage of container
+      technologies: [
+        {
+          id: "react",
+          name: "React",
+          years: "2+",
+          projectCount: 8,
+          relatedProjects: ["Stellar Dashboard", "Warehouse Management System", "EduOne"],
+          color: "#61DAFB",
+          size: 14,
+        },
+        {
+          id: "python",
+          name: "Python",
+          years: "2+",
+          projectCount: 10,
+          relatedProjects: ["Emotion Detection", "AI Trip Planner", "Web Scraping", "Sudoku Solver"],
+          color: "#3776AB",
+          size: 14,
+        },
+        {
+          id: "nodejs",
+          name: "Node.js",
+          years: "2+",
+          projectCount: 6,
+          relatedProjects: ["Warehouse Management System", "EduOne", "Nebula Engine"],
+          color: "#539E43",
+          size: 13,
+        },
+        {
+          id: "nextjs",
+          name: "Next.js",
+          years: "1+",
+          projectCount: 4,
+          relatedProjects: ["Digital Cosmos", "Stellar Dashboard"],
+          color: "#FFFFFF",
+          size: 12,
+        },
+      ],
+    },
+    {
+      id: "middle",
+      label: "Framework",
+      radius: 48,
+      technologies: [
+        {
+          id: "express",
+          name: "Express.js",
+          years: "2+",
+          projectCount: 5,
+          relatedProjects: ["Warehouse Management System", "EduOne", "Quantum Auth"],
+          color: "#FFFFFF",
+          size: 10,
+        },
+        {
+          id: "mongodb",
+          name: "MongoDB",
+          years: "2+",
+          projectCount: 5,
+          relatedProjects: ["Warehouse Management System", "EduOne", "Contact Management"],
+          color: "#47A248",
+          size: 11,
+        },
+        {
+          id: "tailwind",
+          name: "Tailwind CSS",
+          years: "1+",
+          projectCount: 5,
+          relatedProjects: ["Digital Cosmos", "EduOne", "Stellar Dashboard"],
+          color: "#06B6D4",
+          size: 10,
+        },
+        {
+          id: "flask",
+          name: "Flask",
+          years: "1+",
+          projectCount: 3,
+          relatedProjects: ["AI Trip Planner", "Emotion Detection"],
+          color: "#FFFFFF",
+          size: 9,
+        },
+      ],
+    },
+    {
+      id: "outer",
+      label: "Frontier",
+      radius: 68,
+      technologies: [
+        {
+          id: "ml",
+          name: "Machine Learning",
+          years: "1+",
+          projectCount: 4,
+          relatedProjects: ["Emotion Detection", "Deep Learning Projects", "Smart India Hackathon"],
+          color: "#FF6F61",
+          size: 11,
+        },
+        {
+          id: "dl",
+          name: "Deep Learning",
+          years: "1+",
+          projectCount: 3,
+          relatedProjects: ["Emotion Detection", "Deep Learning Projects"],
+          color: "#A78BFA",
+          size: 11,
+        },
+        {
+          id: "genai",
+          name: "Generative AI",
+          years: "1+",
+          projectCount: 3,
+          relatedProjects: ["AI Trip Planner", "EduOne"],
+          color: "#F59E0B",
+          size: 10,
+        },
+        {
+          id: "git",
+          name: "Git",
+          years: "2+",
+          projectCount: 12,
+          relatedProjects: ["All Projects"],
+          color: "#F05032",
+          size: 9,
+        },
+      ],
+    },
+  ],
+  // Connections between technologies (visualized as animated lines)
+  connections: [
+    { from: "react", to: "nextjs" },
+    { from: "react", to: "tailwind" },
+    { from: "nodejs", to: "express" },
+    { from: "nodejs", to: "mongodb" },
+    { from: "python", to: "flask" },
+    { from: "python", to: "ml" },
+    { from: "ml", to: "dl" },
+    { from: "dl", to: "genai" },
+    { from: "python", to: "genai" },
+    { from: "react", to: "mongodb" },
+  ],
+};
 
 export const EXPERIENCE = [
   {
