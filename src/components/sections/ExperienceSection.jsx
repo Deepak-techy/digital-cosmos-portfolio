@@ -70,26 +70,28 @@ export default function ExperienceSection() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const line = lineRef.current;
-    if (!line) return;
+    const ctx = gsap.context(() => {
+      const line = lineRef.current;
+      if (!line) return;
 
-    gsap.fromTo(
-      line,
-      { scaleY: 0 },
-      {
-        scaleY: 1,
-        ease: "none",
-        scrollTrigger: {
-          trigger: timelineRef.current,
-          start: "top 60%",
-          end: "bottom 60%",
-          scrub: 1,
-        },
-      }
-    );
+      gsap.fromTo(
+        line,
+        { scaleY: 0 },
+        {
+          scaleY: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: timelineRef.current,
+            start: "top 60%",
+            end: "bottom 60%",
+            scrub: 1,
+          },
+        }
+      );
+    }, timelineRef);
 
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+      ctx.revert();
     };
   }, []);
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, memo, useCallback } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -14,8 +14,24 @@ import {
   Wrench,
   Sparkles,
   Image as ImageIcon,
+  FileText,
+  Calendar,
+  ScanText,
+  Brain,
+  Users,
+  LayoutDashboard,
+  Circle,
 } from "lucide-react";
-import * as LucideIcons from "lucide-react";
+
+const SATELLITE_ICONS = {
+  FileText,
+  Calendar,
+  ScanText,
+  Brain,
+  Users,
+  LayoutDashboard,
+  Circle,
+};
 import { EDUONE } from "@/lib/constants";
 import SectionLabel from "@/components/ui/SectionLabel";
 
@@ -23,9 +39,9 @@ import SectionLabel from "@/components/ui/SectionLabel";
 // Satellite — orbiting element around the planet
 // ─────────────────────────────────────────────────────────────
 
-function Satellite({ satellite, index, total, onSelect, isPaused }) {
+const Satellite = memo(function Satellite({ satellite, index, total, onSelect, isPaused }) {
   const [hovered, setHovered] = useState(false);
-  const Icon = LucideIcons[satellite.icon] || LucideIcons.Circle;
+  const Icon = SATELLITE_ICONS[satellite.icon] || Circle;
   const angleStep = 360 / total;
   const startAngle = index * angleStep;
 
@@ -63,12 +79,12 @@ function Satellite({ satellite, index, total, onSelect, isPaused }) {
         {/* Satellite body */}
         <div
           className={`
-            relative flex flex-col items-center gap-2 rounded-2xl border px-4 py-3 backdrop-blur-md
+            relative flex flex-col items-center gap-2 rounded-2xl border px-4 py-3
             transition-all duration-500
             ${
               hovered
-                ? "border-star/40 bg-void/90 shadow-[0_0_30px_rgba(96,165,250,0.15),0_8px_30px_rgba(0,0,0,0.4)]"
-                : "border-border-subtle/50 bg-void/70 shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
+                ? "border-star/40 bg-void/95 shadow-[0_0_30px_rgba(96,165,250,0.15),0_8px_30px_rgba(0,0,0,0.4)]"
+                : "border-border-subtle/50 bg-void/80 shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
             }
           `}
           style={{ minWidth: 100 }}
@@ -103,14 +119,14 @@ function Satellite({ satellite, index, total, onSelect, isPaused }) {
       </motion.button>
     </div>
   );
-}
+});
 
 // ─────────────────────────────────────────────────────────────
 // Detail Modal — immersive project deep-dive
 // ─────────────────────────────────────────────────────────────
 
 function DetailModal({ satellite, onClose }) {
-  const Icon = LucideIcons[satellite.icon] || LucideIcons.Circle;
+  const Icon = SATELLITE_ICONS[satellite.icon] || Circle;
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -453,16 +469,16 @@ export default function EduOneSection() {
   // Orbit visibility
   const orbitsOpacity = useTransform(scrollYProgress, [0.3, 0.6], [0, 1]);
 
-  function handleSelectSatellite(satellite) {
+  const handleSelectSatellite = useCallback((satellite) => {
     setOrbitsPaused(true);
     setSelectedSatellite(satellite);
-  }
+  }, []);
 
-  function handleCloseModal() {
+  const handleCloseModal = useCallback(() => {
     setSelectedSatellite(null);
     // Resume orbits after a small delay so exit animation isn't jarring
     setTimeout(() => setOrbitsPaused(false), 400);
-  }
+  }, []);
 
   return (
     <>

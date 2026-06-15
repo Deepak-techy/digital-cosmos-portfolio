@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -14,7 +14,26 @@ const STAR_SIZES = {
   xl: { radius: 8, glow: 28, hoverRadius: 14 },
 };
 
-function ProjectStar({ project, index, containerBounds }) {
+// Pre-computed ambient stars to avoid hydration mismatch and Math.random() in render
+const AMBIENT_STARS = [
+  { width: 2.1, height: 2.1, left: "12%", top: "45%", opacity: 0.18, delay: "1.2s", duration: "3.4s" },
+  { width: 1.5, height: 1.5, left: "78%", top: "23%", opacity: 0.25, delay: "0.4s", duration: "2.1s" },
+  { width: 2.8, height: 2.8, left: "34%", top: "82%", opacity: 0.12, delay: "2.7s", duration: "4.5s" },
+  { width: 1.2, height: 1.2, left: "56%", top: "15%", opacity: 0.29, delay: "3.1s", duration: "2.8s" },
+  { width: 2.0, height: 2.0, left: "89%", top: "67%", opacity: 0.15, delay: "0.8s", duration: "3.9s" },
+  { width: 1.7, height: 1.7, left: "22%", top: "71%", opacity: 0.22, delay: "1.9s", duration: "4.2s" },
+  { width: 2.5, height: 2.5, left: "47%", top: "39%", opacity: 0.11, delay: "2.3s", duration: "3.1s" },
+  { width: 1.4, height: 1.4, left: "63%", top: "88%", opacity: 0.27, delay: "0.2s", duration: "2.5s" },
+  { width: 2.3, height: 2.3, left: "5%", top: "19%", opacity: 0.14, delay: "3.5s", duration: "4.8s" },
+  { width: 1.9, height: 1.9, left: "93%", top: "11%", opacity: 0.20, delay: "1.5s", duration: "3.7s" },
+  { width: 2.6, height: 2.6, left: "41%", top: "58%", opacity: 0.13, delay: "2.9s", duration: "4.1s" },
+  { width: 1.3, height: 1.3, left: "71%", top: "61%", opacity: 0.28, delay: "0.6s", duration: "2.3s" },
+  { width: 2.2, height: 2.2, left: "28%", top: "31%", opacity: 0.16, delay: "1.7s", duration: "3.5s" },
+  { width: 1.6, height: 1.6, left: "84%", top: "79%", opacity: 0.24, delay: "3.8s", duration: "2.9s" },
+  { width: 2.7, height: 2.7, left: "50%", top: "92%", opacity: 0.10, delay: "2.1s", duration: "4.7s" },
+];
+
+const ProjectStar = memo(function ProjectStar({ project, index, containerBounds }) {
   const [hovered, setHovered] = useState(false);
   const starConfig = STAR_SIZES[project.size] || STAR_SIZES.sm;
 
@@ -106,7 +125,7 @@ function ProjectStar({ project, index, containerBounds }) {
       </AnimatePresence>
     </div>
   );
-}
+});
 
 export default function OriginSection() {
   const sectionRef = useRef(null);
@@ -122,46 +141,48 @@ export default function OriginSection() {
 
     if (!section || !content || !stars) return;
 
-    // Fade in the year + narrative on scroll
-    gsap.fromTo(
-      content,
-      { opacity: 0, y: 60 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: section,
-          start: "top 70%",
-          end: "top 30%",
-          scrub: 1,
-        },
-      }
-    );
+    const ctx = gsap.context(() => {
+      // Fade in the year + narrative on scroll
+      gsap.fromTo(
+        content,
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 70%",
+            end: "top 30%",
+            scrub: 1,
+          },
+        }
+      );
 
-    // Stars fade in staggered
-    const starElements = stars.querySelectorAll("[data-star]");
-    gsap.fromTo(
-      starElements,
-      { opacity: 0, scale: 0 },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 0.8,
-        ease: "back.out(2)",
-        stagger: 0.15,
-        scrollTrigger: {
-          trigger: section,
-          start: "top 50%",
-          end: "top 10%",
-          scrub: 1,
-        },
-      }
-    );
+      // Stars fade in staggered
+      const starElements = stars.querySelectorAll("[data-star]");
+      gsap.fromTo(
+        starElements,
+        { opacity: 0, scale: 0 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 0.8,
+          ease: "back.out(2)",
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: section,
+            start: "top 50%",
+            end: "top 10%",
+            scrub: 1,
+          },
+        }
+      );
+    }, sectionRef);
 
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+      ctx.revert();
     };
   }, []);
 
@@ -217,18 +238,18 @@ export default function OriginSection() {
           />
 
           {/* Sparse decorative dots (ambient stars) */}
-          {Array.from({ length: 15 }).map((_, i) => (
+          {AMBIENT_STARS.map((star, i) => (
             <div
               key={`ambient-${i}`}
               className="absolute rounded-full animate-star-twinkle"
               style={{
-                width: Math.random() * 2 + 1,
-                height: Math.random() * 2 + 1,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                backgroundColor: `rgba(255,255,255,${0.1 + Math.random() * 0.2})`,
-                animationDelay: `${Math.random() * 4}s`,
-                animationDuration: `${2 + Math.random() * 3}s`,
+                width: star.width,
+                height: star.height,
+                left: star.left,
+                top: star.top,
+                backgroundColor: `rgba(255,255,255,${star.opacity})`,
+                animationDelay: star.delay,
+                animationDuration: star.duration,
               }}
               aria-hidden="true"
             />

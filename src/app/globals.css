@@ -157,22 +157,27 @@ body {
 
 .animate-star-pulse {
   animation: star-pulse 3s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
 .animate-star-twinkle {
   animation: star-twinkle 2s ease-in-out infinite;
+  will-change: opacity;
 }
 
 .animate-orbit {
   animation: orbit 20s linear infinite;
+  will-change: transform;
 }
 
 .animate-gradient-drift {
   animation: gradient-drift 15s ease-in-out infinite;
+  will-change: transform;
 }
 
 .animate-scroll-hint {
   animation: scroll-hint 2s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
 /* ─────────────────────────────────────────────────────────── */

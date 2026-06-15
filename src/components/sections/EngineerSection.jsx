@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect, useCallback, memo } from "react";
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/ui/SectionLabel";
 
@@ -29,9 +29,51 @@ function ParticleCanvas({ nodes, containerSize, isVisible }) {
   const animationRef = useRef(null);
   const particlesRef = useRef([]);
 
+  // Create particles once when nodes or containerSize changes
+  useEffect(() => {
+    if (!containerSize.width) return;
+
+    const w = containerSize.width;
+    const h = containerSize.height;
+    const cx = w / 2;
+    const cy = h / 2;
+
+    const particles = [];
+    for (const node of nodes) {
+      const rad = (node.angle * Math.PI) / 180;
+      const radius = Math.min(w, h) * (CENTER_RADIUS_PCT / 100);
+      const nx = cx + radius * Math.cos(rad);
+      const ny = cy + radius * Math.sin(rad);
+
+      const count = 2 + Math.floor(Math.random() * 2);
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          startX: nx,
+          startY: ny,
+          endX: cx,
+          endY: cy,
+          progress: Math.random(),
+          speed: 0.002 + Math.random() * 0.003,
+          opacity: 0.3 + Math.random() * 0.5,
+          size: 1 + Math.random() * 1.5,
+        });
+      }
+    }
+    particlesRef.current = particles;
+  }, [nodes, containerSize]);
+
+  // Run the draw loop only when visible
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas || !containerSize.width) return;
+
+    if (!isVisible) {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+        animationRef.current = null;
+      }
+      return;
+    }
 
     const ctx = canvas.getContext("2d");
     const dpr = window.devicePixelRatio || 1;
@@ -42,45 +84,8 @@ function ParticleCanvas({ nodes, containerSize, isVisible }) {
     canvas.height = h * dpr;
     ctx.scale(dpr, dpr);
 
-    const cx = w / 2;
-    const cy = h / 2;
-
-    // Create particles for each connection
-    function createParticles() {
-      const particles = [];
-      for (const node of nodes) {
-        const rad = (node.angle * Math.PI) / 180;
-        const radius = Math.min(w, h) * (CENTER_RADIUS_PCT / 100);
-        const nx = cx + radius * Math.cos(rad);
-        const ny = cy + radius * Math.sin(rad);
-
-        // 2-3 particles per connection
-        const count = 2 + Math.floor(Math.random() * 2);
-        for (let i = 0; i < count; i++) {
-          particles.push({
-            startX: nx,
-            startY: ny,
-            endX: cx,
-            endY: cy,
-            progress: Math.random(), // 0 to 1 along the path
-            speed: 0.002 + Math.random() * 0.003,
-            opacity: 0.3 + Math.random() * 0.5,
-            size: 1 + Math.random() * 1.5,
-          });
-        }
-      }
-      return particles;
-    }
-
-    particlesRef.current = createParticles();
-
     function draw() {
       ctx.clearRect(0, 0, w, h);
-
-      if (!isVisible) {
-        animationRef.current = requestAnimationFrame(draw);
-        return;
-      }
 
       for (const p of particlesRef.current) {
         p.progress += p.speed;
@@ -89,12 +94,10 @@ function ParticleCanvas({ nodes, containerSize, isVisible }) {
           p.opacity = 0.3 + Math.random() * 0.5;
         }
 
-        // Ease-in: particles accelerate toward center
         const t = p.progress * p.progress;
         const x = p.startX + (p.endX - p.startX) * t;
         const y = p.startY + (p.endY - p.startY) * t;
 
-        // Fade in at start, fade out at end
         const fadeIn = Math.min(p.progress * 5, 1);
         const fadeOut = Math.min((1 - p.progress) * 4, 1);
         const alpha = p.opacity * fadeIn * fadeOut;
@@ -106,7 +109,6 @@ function ParticleCanvas({ nodes, containerSize, isVisible }) {
         ctx.fillStyle = `rgba(96, 165, 250, ${alpha})`;
         ctx.fill();
 
-        // Subtle glow trail
         if (p.size > 1.5) {
           ctx.beginPath();
           ctx.arc(x, y, p.size * 3, 0, Math.PI * 2);
@@ -121,9 +123,12 @@ function ParticleCanvas({ nodes, containerSize, isVisible }) {
     draw();
 
     return () => {
-      cancelAnimationFrame(animationRef.current);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+        animationRef.current = null;
+      }
     };
-  }, [nodes, containerSize, isVisible]);
+  }, [containerSize, isVisible]);
 
   return (
     <canvas
@@ -143,7 +148,7 @@ function ParticleCanvas({ nodes, containerSize, isVisible }) {
 // Connection Lines (SVG)
 // ─────────────────────────────────────────────────────────────
 
-function ConnectionLines({ nodes, activeNode }) {
+const ConnectionLines = memo(function ConnectionLines({ nodes, activeNode }) {
   return (
     <svg
       className="absolute inset-0 w-full h-full pointer-events-none"
@@ -178,13 +183,13 @@ function ConnectionLines({ nodes, activeNode }) {
       })}
     </svg>
   );
-}
+});
 
 // ─────────────────────────────────────────────────────────────
 // Outer Node
 // ─────────────────────────────────────────────────────────────
 
-function NeuralNode({ node, isActive, onHover }) {
+const NeuralNode = memo(function NeuralNode({ node, isActive, onHover }) {
   const rad = (node.angle * Math.PI) / 180;
   const x = 50 + CENTER_RADIUS_PCT * Math.cos(rad);
   const y = 50 + CENTER_RADIUS_PCT * Math.sin(rad);
@@ -269,13 +274,13 @@ function NeuralNode({ node, isActive, onHover }) {
       </motion.div>
     </div>
   );
-}
+});
 
 // ─────────────────────────────────────────────────────────────
 // Center Node — The Engineer
 // ─────────────────────────────────────────────────────────────
 
-function CenterNode() {
+const CenterNode = memo(function CenterNode() {
   return (
     <div
       className="absolute"
@@ -348,7 +353,7 @@ function CenterNode() {
       </div>
     </div>
   );
-}
+});
 
 // ─────────────────────────────────────────────────────────────
 // Main Section

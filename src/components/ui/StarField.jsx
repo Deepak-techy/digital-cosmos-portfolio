@@ -44,11 +44,11 @@ export default function StarField() {
 
     const ctx = canvas.getContext("2d");
     let width = window.innerWidth;
-    let height = document.documentElement.scrollHeight;
+    let height = window.innerHeight;
 
     function resize() {
       width = window.innerWidth;
-      height = Math.max(document.documentElement.scrollHeight, window.innerHeight);
+      height = window.innerHeight;
       canvas.width = width;
       canvas.height = height;
       const count = isMobile ? 120 : 350;

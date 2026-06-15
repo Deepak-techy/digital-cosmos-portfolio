@@ -1,12 +1,20 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, memo } from "react";
 import { motion } from "framer-motion";
-import * as LucideIcons from "lucide-react";
+import { Trophy, Users, GitBranch, Award, Star } from "lucide-react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import GradientBlob from "@/components/ui/GradientBlob";
 import { ACHIEVEMENTS } from "@/lib/constants";
 import { fadeUp, staggerContainer } from "@/lib/animations";
+
+const ACHIEVEMENT_ICONS = {
+  Trophy,
+  Users,
+  GitBranch,
+  Award,
+  Star,
+};
 
 function AnimatedCounter({ target, suffix = "", duration = 2 }) {
   const [count, setCount] = useState(0);
@@ -55,8 +63,8 @@ function AnimatedCounter({ target, suffix = "", duration = 2 }) {
   );
 }
 
-function AchievementCard({ achievement, index }) {
-  const IconComponent = LucideIcons[achievement.icon] || LucideIcons.Star;
+const AchievementCard = memo(function AchievementCard({ achievement, index }) {
+  const IconComponent = ACHIEVEMENT_ICONS[achievement.icon] || Star;
 
   return (
     <motion.div
@@ -87,7 +95,7 @@ function AchievementCard({ achievement, index }) {
       </p>
     </motion.div>
   );
-}
+});
 
 export default function AchievementsSection() {
   return (

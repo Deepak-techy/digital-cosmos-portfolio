@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect, useMemo, useCallback } from "react";
+import { useState, useRef, useEffect, useMemo, useCallback, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TECH_GALAXY } from "@/lib/constants";
 import SectionLabel from "@/components/ui/SectionLabel";
@@ -33,7 +33,7 @@ function computePositions(galaxy) {
 // Tech Node — a celestial body
 // ─────────────────────────────────────────────────────────────
 
-function TechNode({ tech, isActive, isConnected, onHover }) {
+const TechNode = memo(function TechNode({ tech, isActive, isConnected, onHover }) {
   const isHighlighted = isActive || isConnected;
 
   return (
@@ -182,13 +182,13 @@ function TechNode({ tech, isActive, isConnected, onHover }) {
       </AnimatePresence>
     </div>
   );
-}
+});
 
 // ─────────────────────────────────────────────────────────────
 // Connection Lines SVG
 // ─────────────────────────────────────────────────────────────
 
-function ConnectionLines({ connections, positions, activeTech }) {
+const ConnectionLines = memo(function ConnectionLines({ connections, positions, activeTech }) {
   return (
     <svg
       className="absolute inset-0 w-full h-full pointer-events-none"
@@ -217,6 +217,7 @@ function ConnectionLines({ connections, positions, activeTech }) {
             }
             strokeWidth={isHighlighted ? 1.2 : 0.5}
             strokeDasharray={isHighlighted ? "none" : "3 8"}
+            initial={{ opacity: 0.15 }}
             animate={{
               opacity: isHighlighted ? 0.6 : 0.15,
               strokeWidth: isHighlighted ? 1.2 : 0.5,
@@ -227,13 +228,13 @@ function ConnectionLines({ connections, positions, activeTech }) {
       })}
     </svg>
   );
-}
+});
 
 // ─────────────────────────────────────────────────────────────
 // Orbit Rings SVG
 // ─────────────────────────────────────────────────────────────
 
-function OrbitRings({ rings, activeTech, positions }) {
+const OrbitRings = memo(function OrbitRings({ rings, activeTech, positions }) {
   // Determine which ring should be highlighted
   const activeRingId = activeTech ? positions[activeTech]?.ringId : null;
 
@@ -261,13 +262,13 @@ function OrbitRings({ rings, activeTech, positions }) {
       })}
     </svg>
   );
-}
+});
 
 // ─────────────────────────────────────────────────────────────
 // Center Node — "YOU"
 // ─────────────────────────────────────────────────────────────
 
-function CenterNode() {
+const CenterNode = memo(function CenterNode() {
   return (
     <div
       className="absolute"
@@ -310,7 +311,7 @@ function CenterNode() {
       </div>
     </div>
   );
-}
+});
 
 // ─────────────────────────────────────────────────────────────
 // Main Section

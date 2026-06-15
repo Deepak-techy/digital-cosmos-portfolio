@@ -29,24 +29,26 @@ export default function HeroSection() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Scroll cue: gentle bounce, fades out on scroll
-    const cue = scrollCueRef.current;
-    if (cue) {
-      gsap.to(cue, {
-        opacity: 0,
-        y: -20,
-        ease: "power2.inOut",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "5% top",
-          scrub: 1,
-        },
-      });
-    }
+    const ctx = gsap.context(() => {
+      // Scroll cue: gentle bounce, fades out on scroll
+      const cue = scrollCueRef.current;
+      if (cue) {
+        gsap.to(cue, {
+          opacity: 0,
+          y: -20,
+          ease: "power2.inOut",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top",
+            end: "5% top",
+            scrub: 1,
+          },
+        });
+      }
+    }, sectionRef);
 
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+      ctx.revert();
     };
   }, []);
 
