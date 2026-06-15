@@ -7,6 +7,8 @@ import Navbar from "@/components/layout/Navbar";
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/sections/HeroSection";
+import OriginSection from "@/components/sections/OriginSection";
+import GrowthSection from "@/components/sections/GrowthSection";
 import AboutSection from "@/components/sections/AboutSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import AchievementsSection from "@/components/sections/AchievementsSection";
@@ -29,7 +31,14 @@ export default function Home() {
         <ScrollProgress />
 
         <main>
+          {/* Act I — Landing */}
           <HeroSection />
+
+          {/* Act II — Journey Timeline */}
+          <OriginSection />
+          <GrowthSection />
+
+          {/* Act III — Present Day */}
           <AboutSection />
           <ProjectsSection />
           <AchievementsSection />

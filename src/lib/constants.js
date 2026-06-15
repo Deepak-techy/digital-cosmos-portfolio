@@ -36,6 +36,126 @@ export const NAV_ITEMS = [
   { label: "Signal", href: "#contact", sectionId: "contact" },
 ];
 
+// ─────────────────────────────────────────────────────────────
+// JOURNEY TIMELINE — Origin & Growth
+// ─────────────────────────────────────────────────────────────
+
+export const ORIGIN = {
+  year: "2024",
+  narrative:
+    "The journey started with small Python projects, curiosity, and countless hours of learning.",
+  projects: [
+    {
+      id: "origin-1",
+      title: "Temperature Converter",
+      summary:
+        "A clean utility to convert between Celsius, Fahrenheit, and Kelvin — the first spark of building something functional from scratch.",
+      tech: ["Python", "CLI"],
+      // Position in the star field (percentage of container)
+      position: { x: 18, y: 32 },
+      size: "sm",
+    },
+    {
+      id: "origin-2",
+      title: "Contact Management System",
+      summary:
+        "A CRUD application for managing contacts with file-based persistence. Learning the fundamentals of data handling and user input.",
+      tech: ["Python", "File I/O", "OOP"],
+      position: { x: 72, y: 24 },
+      size: "sm",
+    },
+    {
+      id: "origin-3",
+      title: "Sudoku Solver",
+      summary:
+        "An algorithmic puzzle solver using backtracking. The first deep dive into computational thinking and recursive problem-solving.",
+      tech: ["Python", "Algorithms", "Backtracking"],
+      position: { x: 45, y: 58 },
+      size: "md",
+    },
+    {
+      id: "origin-4",
+      title: "Web Scraping Projects",
+      summary:
+        "Automated data extraction from websites using Python libraries. Learning to interact with the web programmatically.",
+      tech: ["Python", "BeautifulSoup", "Requests"],
+      position: { x: 28, y: 72 },
+      size: "sm",
+    },
+    {
+      id: "origin-5",
+      title: "Prodigy Infotech Internship",
+      summary:
+        "Professional internship experience applying Python skills to real-world problems. A turning point from learning to building.",
+      tech: ["Python", "Data Analysis", "Professional Dev"],
+      position: { x: 78, y: 65 },
+      size: "md",
+    },
+  ],
+};
+
+export const GROWTH = {
+  year: "2025",
+  narrative:
+    "The projects became larger. The challenges became harder. The vision became clearer.",
+  projects: [
+    {
+      id: "growth-1",
+      title: "Emotion Detection System",
+      summary:
+        "A deep learning model that detects human emotions from facial expressions in real-time using convolutional neural networks.",
+      tech: ["Python", "TensorFlow", "OpenCV", "CNN"],
+      position: { x: 22, y: 28 },
+      size: "lg",
+    },
+    {
+      id: "growth-2",
+      title: "AI Trip Planner",
+      summary:
+        "An intelligent travel planning assistant powered by AI that generates personalized itineraries based on user preferences and constraints.",
+      tech: ["Python", "LLM", "API Integration", "Streamlit"],
+      position: { x: 65, y: 20 },
+      size: "lg",
+    },
+    {
+      id: "growth-3",
+      title: "Warehouse Management System",
+      summary:
+        "A full-stack inventory management platform with real-time tracking, automated reordering, and analytics dashboards.",
+      tech: ["React", "Node.js", "MongoDB", "REST API"],
+      position: { x: 50, y: 50 },
+      size: "xl",
+    },
+    {
+      id: "growth-4",
+      title: "Smart India Hackathon",
+      summary:
+        "National-level hackathon project solving a real government challenge. Built a prototype under extreme time pressure with a cross-functional team.",
+      tech: ["Full Stack", "AI/ML", "Teamwork", "Presentation"],
+      position: { x: 30, y: 70 },
+      size: "lg",
+    },
+    {
+      id: "growth-5",
+      title: "Deep Learning Projects",
+      summary:
+        "A series of advanced neural network implementations — from image classification to natural language processing and generative models.",
+      tech: ["PyTorch", "Transformers", "NLP", "Computer Vision"],
+      position: { x: 75, y: 62 },
+      size: "lg",
+    },
+  ],
+  // Constellation lines connecting achievements (index pairs)
+  constellations: [
+    [0, 2], // Emotion Detection → Warehouse
+    [1, 2], // AI Trip Planner → Warehouse
+    [2, 3], // Warehouse → Smart India
+    [2, 4], // Warehouse → Deep Learning
+    [3, 4], // Smart India → Deep Learning
+    [0, 4], // Emotion Detection → Deep Learning
+  ],
+};
+
 export const ABOUT = {
   paragraphs: [
     "In the vast expanse of the digital universe, I chart my course as a software engineer driven by curiosity and precision. Every system I build is a new star — engineered to illuminate, to endure, and to inspire.",
