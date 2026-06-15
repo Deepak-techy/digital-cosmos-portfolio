@@ -1,26 +1,261 @@
 @import "tailwindcss";
 
+/* ─────────────────────────────────────────────────────────── */
+/* DIGITAL COSMOS — Design System                              */
+/* ─────────────────────────────────────────────────────────── */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-void: #050816;
+  --bg-nebula: #0B1120;
+  --bg-deep: #0F172A;
+  --accent-star: #60A5FA;
+  --accent-aurora: #A78BFA;
+  --text-light: #FFFFFF;
+  --text-muted: #94A3B8;
+  --border-subtle: #1E293B;
+  --glow-star: rgba(96, 165, 250, 0.2);
+  --glow-aurora: rgba(167, 139, 250, 0.15);
+  --glow-star-strong: rgba(96, 165, 250, 0.4);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-void: var(--bg-void);
+  --color-nebula: var(--bg-nebula);
+  --color-deep: var(--bg-deep);
+  --color-star: var(--accent-star);
+  --color-aurora: var(--accent-aurora);
+  --color-light: var(--text-light);
+  --color-muted: var(--text-muted);
+  --color-border-subtle: var(--border-subtle);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-space-grotesk);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─────────────────────────────────────────────────────────── */
+/* Base Styles                                                  */
+/* ─────────────────────────────────────────────────────────── */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-subtle) transparent;
+}
+
+html {
+  scroll-behavior: auto; /* Lenis handles smooth scrolling */
+  background-color: var(--bg-void);
+  color: var(--text-light);
+  overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-void);
+  color: var(--text-light);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--accent-star);
+  color: var(--bg-void);
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/* Typography Utilities                                         */
+/* ─────────────────────────────────────────────────────────── */
+
+.font-display {
+  font-family: var(--font-space-grotesk), var(--font-inter), system-ui, sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/* Glow Effects                                                 */
+/* ─────────────────────────────────────────────────────────── */
+
+.glow-star {
+  box-shadow: 0 0 20px var(--glow-star), 0 0 60px rgba(96, 165, 250, 0.08);
+}
+
+.glow-aurora {
+  box-shadow: 0 0 20px var(--glow-aurora), 0 0 60px rgba(167, 139, 250, 0.08);
+}
+
+.glow-text-star {
+  text-shadow: 0 0 30px var(--glow-star);
+}
+
+.glow-text-aurora {
+  text-shadow: 0 0 30px var(--glow-aurora);
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/* Star Pulse Animation                                         */
+/* ─────────────────────────────────────────────────────────── */
+
+@keyframes star-pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes star-twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes gradient-drift {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 15px) scale(0.95); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes line-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll-hint {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+.animate-star-pulse {
+  animation: star-pulse 3s ease-in-out infinite;
+}
+
+.animate-star-twinkle {
+  animation: star-twinkle 2s ease-in-out infinite;
+}
+
+.animate-orbit {
+  animation: orbit 20s linear infinite;
+}
+
+.animate-gradient-drift {
+  animation: gradient-drift 15s ease-in-out infinite;
+}
+
+.animate-scroll-hint {
+  animation: scroll-hint 2s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/* Card Gradient Hover                                          */
+/* ─────────────────────────────────────────────────────────── */
+
+.card-spotlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-spotlight::before {
+  content: "";
+  position: absolute;
+  top: var(--mouse-y, 50%);
+  left: var(--mouse-x, 50%);
+  width: 400px;
+  height: 400px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(96, 165, 250, 0.12) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card-spotlight:hover::before {
+  opacity: 1;
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/* Section Spacing                                              */
+/* ─────────────────────────────────────────────────────────── */
+
+.section-padding {
+  padding-top: clamp(80px, 12vw, 200px);
+  padding-bottom: clamp(80px, 12vw, 200px);
+}
+
+.section-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(20px, 5vw, 80px);
+  padding-right: clamp(20px, 5vw, 80px);
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/* Reduced Motion                                               */
+/* ─────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────── */
+/* Custom Scrollbar (WebKit)                                    */
+/* ─────────────────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
 }
