@@ -72,7 +72,7 @@ export default function SkillsSection() {
       />
 
       <div className="section-container">
-        <SectionLabel number="05" title="NEBULA" />
+        <SectionLabel number="08" title="NEBULA" />
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}

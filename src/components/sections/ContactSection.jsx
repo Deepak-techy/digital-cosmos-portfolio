@@ -61,7 +61,7 @@ export default function ContactSection() {
       </div>
 
       <div className="section-container relative z-10">
-        <SectionLabel number="08" title="SIGNAL" />
+        <SectionLabel number="11" title="SIGNAL" />
 
         <div className="text-center max-w-3xl mx-auto">
           {/* Heading */}

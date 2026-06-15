@@ -102,7 +102,7 @@ export default function AchievementsSection() {
       />
 
       <div className="section-container">
-        <SectionLabel number="04" title="CONSTELLATIONS" />
+        <SectionLabel number="07" title="CONSTELLATIONS" />
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}

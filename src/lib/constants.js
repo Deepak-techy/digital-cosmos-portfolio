@@ -156,6 +156,151 @@ export const GROWTH = {
   ],
 };
 
+// ─────────────────────────────────────────────────────────────
+// FLAGSHIP — EduOne
+// ─────────────────────────────────────────────────────────────
+
+export const EDUONE = {
+  title: "EDUONE",
+  subtitle: "AI Powered Academic Ecosystem",
+  description:
+    "A comprehensive academic platform that brings together AI-powered tools for students, educators, and institutions — transforming how learning happens at scale.",
+  problemStatement:
+    "Modern education is fragmented — students juggle multiple tools for notes, planning, resume building, and collaboration. There's no unified, intelligent system that adapts to individual academic needs while fostering community learning.",
+  solution:
+    "EduOne unifies the entire academic experience into a single AI-powered ecosystem. From intelligent document analysis to automated academic planning, every tool is interconnected and learns from user behavior to provide personalized recommendations.",
+  architecture: [
+    "React frontend with modular micro-feature architecture",
+    "Node.js/Express API layer with JWT authentication",
+    "MongoDB for flexible document storage",
+    "Python microservices for AI/ML pipelines",
+    "Redis for caching and session management",
+    "WebSocket for real-time collaboration features",
+  ],
+  techStack: [
+    "React",
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "Python",
+    "TensorFlow",
+    "LangChain",
+    "Redis",
+    "WebSocket",
+    "Tailwind CSS",
+  ],
+  features: [
+    "AI-powered PDF question answering with context-aware responses",
+    "Automated academic planner with deadline tracking and smart scheduling",
+    "Resume analysis with AI feedback and industry benchmarking",
+    "Intelligent note organization with auto-tagging and search",
+    "Community platform with discussion forums and peer collaboration",
+    "Admin dashboard with analytics, user management, and content moderation",
+  ],
+  links: {
+    github: "https://github.com/example/eduone",
+    demo: "https://eduone.example.com",
+  },
+  satellites: [
+    {
+      id: "sat-1",
+      name: "PDF Q&A",
+      icon: "FileText",
+      orbitRadius: 42,
+      orbitSpeed: 45,
+      startAngle: 0,
+      description:
+        "Upload any academic PDF and ask questions in natural language. The AI extracts context, understands structure, and delivers precise answers with page references.",
+      features: [
+        "Context-aware question answering",
+        "Multi-document cross-referencing",
+        "Citation extraction and formatting",
+        "Summary generation at multiple detail levels",
+      ],
+    },
+    {
+      id: "sat-2",
+      name: "Academic Planner",
+      icon: "Calendar",
+      orbitRadius: 42,
+      orbitSpeed: 45,
+      startAngle: 60,
+      description:
+        "An intelligent planner that understands your course load, deadlines, and study patterns to create optimized schedules that adapt in real-time.",
+      features: [
+        "AI-generated study schedules",
+        "Deadline tracking with smart reminders",
+        "Workload balancing across courses",
+        "Integration with university calendars",
+      ],
+    },
+    {
+      id: "sat-3",
+      name: "Resume Analyzer",
+      icon: "ScanText",
+      orbitRadius: 42,
+      orbitSpeed: 45,
+      startAngle: 120,
+      description:
+        "AI-powered resume analysis that scores, critiques, and suggests improvements based on industry standards and target role requirements.",
+      features: [
+        "ATS compatibility scoring",
+        "Section-by-section feedback",
+        "Industry-specific keyword suggestions",
+        "Before/after improvement tracking",
+      ],
+    },
+    {
+      id: "sat-4",
+      name: "AI Note Organizer",
+      icon: "Brain",
+      orbitRadius: 42,
+      orbitSpeed: 45,
+      startAngle: 180,
+      description:
+        "Transform messy notes into structured knowledge. Auto-tags, categorizes, and creates searchable knowledge graphs from your academic content.",
+      features: [
+        "Automatic categorization and tagging",
+        "Knowledge graph visualization",
+        "Smart search with semantic understanding",
+        "Flashcard generation from notes",
+      ],
+    },
+    {
+      id: "sat-5",
+      name: "Community Platform",
+      icon: "Users",
+      orbitRadius: 42,
+      orbitSpeed: 45,
+      startAngle: 240,
+      description:
+        "A collaborative space where students connect, share resources, discuss topics, and form study groups — powered by intelligent matching.",
+      features: [
+        "Discussion forums with AI moderation",
+        "Study group matching by subject and schedule",
+        "Resource sharing with quality ratings",
+        "Peer tutoring marketplace",
+      ],
+    },
+    {
+      id: "sat-6",
+      name: "Admin Dashboard",
+      icon: "LayoutDashboard",
+      orbitRadius: 42,
+      orbitSpeed: 45,
+      startAngle: 300,
+      description:
+        "Comprehensive administrative control panel with real-time analytics, user management, content moderation, and platform health monitoring.",
+      features: [
+        "Real-time user analytics and engagement metrics",
+        "Content moderation with AI assistance",
+        "Role-based access control",
+        "Platform performance monitoring",
+      ],
+    },
+  ],
+};
+
 export const ABOUT = {
   paragraphs: [
     "In the vast expanse of the digital universe, I chart my course as a software engineer driven by curiosity and precision. Every system I build is a new star — engineered to illuminate, to endure, and to inspire.",
