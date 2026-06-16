@@ -23,7 +23,7 @@ const AchievementsSection = dynamic(() => import("@/components/sections/Achievem
 const TechGalaxySection = dynamic(() => import("@/components/sections/TechGalaxySection"), { ssr: false });
 const ExperienceSection = dynamic(() => import("@/components/sections/ExperienceSection"), { ssr: false });
 const TestimonialsSection = dynamic(() => import("@/components/sections/TestimonialsSection"), { ssr: false });
-const ContactSection = dynamic(() => import("@/components/sections/ContactSection"), { ssr: false });
+const NextDestinationSection = dynamic(() => import("@/components/sections/NextDestinationSection"), { ssr: false });
 
 export default function Home() {
   return (
@@ -53,7 +53,7 @@ export default function Home() {
         <TechGalaxySection />
         <ExperienceSection />
         <TestimonialsSection />
-        <ContactSection />
+        <NextDestinationSection />
       </main>
 
       <Footer />

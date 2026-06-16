@@ -605,3 +605,15 @@ export const TESTIMONIALS = [
     company: "Digital Forge",
   },
 ];
+
+export const NEXT_DESTINATION = {
+  title: "NEXT DESTINATION",
+  tagline: "Looking for opportunities to build meaningful products.",
+  items: [
+    "AI Engineering",
+    "Machine Learning",
+    "Scalable Systems",
+    "Open Source",
+    "Innovation",
+  ],
+};
