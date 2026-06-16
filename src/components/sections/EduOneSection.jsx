@@ -34,6 +34,8 @@ const SATELLITE_ICONS = {
 };
 import { EDUONE } from "@/lib/constants";
 import SectionLabel from "@/components/ui/SectionLabel";
+import { useSectionSound } from "@/hooks/useSectionSound";
+import { useAudio } from "@/components/providers/AudioProvider";
 
 // ─────────────────────────────────────────────────────────────
 // Satellite — orbiting element around the planet
@@ -460,6 +462,10 @@ export default function EduOneSection() {
   const sectionRef = useRef(null);
   const [selectedSatellite, setSelectedSatellite] = useState(null);
   const [orbitsPaused, setOrbitsPaused] = useState(false);
+  const { playSound } = useAudio();
+
+  // Discovery atmosphere sound
+  useSectionSound("discovery", sectionRef);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -472,13 +478,15 @@ export default function EduOneSection() {
   const handleSelectSatellite = useCallback((satellite) => {
     setOrbitsPaused(true);
     setSelectedSatellite(satellite);
-  }, []);
+    playSound("modalOpen");
+  }, [playSound]);
 
   const handleCloseModal = useCallback(() => {
     setSelectedSatellite(null);
+    playSound("modalClose");
     // Resume orbits after a small delay so exit animation isn't jarring
     setTimeout(() => setOrbitsPaused(false), 400);
-  }, []);
+  }, [playSound]);
 
   return (
     <>

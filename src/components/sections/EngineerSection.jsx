@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, useCallback, memo } from "react";
 import { motion } from "framer-motion";
 import SectionLabel from "@/components/ui/SectionLabel";
+import { useSectionSound } from "@/hooks/useSectionSound";
 
 // ─────────────────────────────────────────────────────────────
 // Neural Network Nodes
@@ -210,7 +211,9 @@ const NeuralNode = memo(function NeuralNode({ node, isActive, onHover }) {
       <motion.div
         onHoverStart={() => onHover(node.id)}
         onHoverEnd={() => onHover(null)}
-        className="relative cursor-default"
+        role="button"
+        tabIndex={0}
+        className="relative cursor-pointer"
         animate={{
           scale: isActive ? 1.3 : 1,
         }}
@@ -365,6 +368,9 @@ export default function EngineerSection() {
   const [activeNode, setActiveNode] = useState(null);
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
   const [isVisible, setIsVisible] = useState(false);
+
+  // Data flow ambience sound
+  useSectionSound("dataFlow", sectionRef);
 
   // Measure container for canvas
   useEffect(() => {

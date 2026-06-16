@@ -2,8 +2,10 @@
 
 import dynamic from "next/dynamic";
 import ScrollAndAnimationProvider from "@/components/providers/ScrollAndAnimationProvider";
+import { AudioProvider } from "@/components/providers/AudioProvider";
 import Navbar from "@/components/layout/Navbar";
 import ScrollProgress from "@/components/layout/ScrollProgress";
+import AudioController from "@/components/ui/AudioController";
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/sections/HeroSection";
 
@@ -28,35 +30,38 @@ const NextDestinationSection = dynamic(() => import("@/components/sections/NextD
 export default function Home() {
   return (
     <ScrollAndAnimationProvider>
-      <StarField />
-      <Navbar />
-      <ScrollProgress />
+      <AudioProvider>
+        <StarField />
+        <Navbar />
+        <ScrollProgress />
+        <AudioController />
 
-      <main>
-        {/* Act I — Landing */}
-        <HeroSection />
+        <main>
+          {/* Act I — Landing */}
+          <HeroSection />
 
-        {/* Act II — Journey Timeline */}
-        <OriginSection />
-        <GrowthSection />
+          {/* Act II — Journey Timeline */}
+          <OriginSection />
+          <GrowthSection />
 
-        {/* Act III — Flagship */}
-        <EduOneSection />
+          {/* Act III — Flagship */}
+          <EduOneSection />
 
-        {/* Act IV — Convergence */}
-        <EngineerSection />
+          {/* Act IV — Convergence */}
+          <EngineerSection />
 
-        {/* Act V — Present Day */}
-        <AboutSection />
-        <ProjectsSection />
-        <AchievementsSection />
-        <TechGalaxySection />
-        <ExperienceSection />
-        <TestimonialsSection />
-        <NextDestinationSection />
-      </main>
+          {/* Act V — Present Day */}
+          <AboutSection />
+          <ProjectsSection />
+          <AchievementsSection />
+          <TechGalaxySection />
+          <ExperienceSection />
+          <TestimonialsSection />
+          <NextDestinationSection />
+        </main>
 
-      <Footer />
+        <Footer />
+      </AudioProvider>
     </ScrollAndAnimationProvider>
   );
 }

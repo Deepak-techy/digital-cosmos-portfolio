@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ORIGIN } from "@/lib/constants";
 import SectionLabel from "@/components/ui/SectionLabel";
+import { useSectionSound } from "@/hooks/useSectionSound";
 
 const STAR_SIZES = {
   sm: { radius: 3, glow: 8, hoverRadius: 6 },
@@ -131,6 +132,9 @@ export default function OriginSection() {
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
   const starFieldRef = useRef(null);
+
+  // Gentle star emergence sound
+  useSectionSound("starEmergence", sectionRef);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);

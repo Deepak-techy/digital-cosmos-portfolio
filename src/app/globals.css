@@ -264,3 +264,49 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-muted);
 }
+
+/* ─────────────────────────────────────────────────────────── */
+/* Audio Volume Slider                                          */
+/* ─────────────────────────────────────────────────────────── */
+
+.audio-volume-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 2px;
+  background: var(--border-subtle);
+  border-radius: 1px;
+  outline: none;
+  cursor: pointer;
+}
+
+.audio-volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-star);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.audio-volume-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.3);
+  box-shadow: 0 0 8px var(--glow-star);
+}
+
+.audio-volume-slider::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-star);
+  border: none;
+  cursor: pointer;
+}
+
+.audio-volume-slider::-moz-range-track {
+  height: 2px;
+  background: var(--border-subtle);
+  border-radius: 1px;
+}

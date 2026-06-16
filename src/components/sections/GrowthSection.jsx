@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { GROWTH } from "@/lib/constants";
 import SectionLabel from "@/components/ui/SectionLabel";
+import { useSectionSound } from "@/hooks/useSectionSound";
 
 const STAR_SIZES = {
   sm: { radius: 4, glow: 12, ring: 20 },
@@ -239,6 +240,9 @@ export default function GrowthSection() {
   const contentRef = useRef(null);
   const starFieldRef = useRef(null);
   const [constellationsRevealed, setConstellationsRevealed] = useState(false);
+
+  // Constellation activation sound
+  useSectionSound("constellationActivate", sectionRef);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);

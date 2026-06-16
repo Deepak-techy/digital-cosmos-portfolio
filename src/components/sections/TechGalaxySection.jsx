@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, useMemo, useCallback, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TECH_GALAXY } from "@/lib/constants";
 import SectionLabel from "@/components/ui/SectionLabel";
+import { useSectionSound } from "@/hooks/useSectionSound";
 
 // ─────────────────────────────────────────────────────────────
 // Compute positions for each tech on its ring
@@ -320,6 +321,9 @@ const CenterNode = memo(function CenterNode() {
 export default function TechGalaxySection() {
   const sectionRef = useRef(null);
   const [activeTech, setActiveTech] = useState(null);
+
+  // Digital network pulse sound
+  useSectionSound("digitalPulse", sectionRef);
 
   const positions = useMemo(() => computePositions(TECH_GALAXY), []);
 

@@ -5,11 +5,15 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { PERSONAL } from "@/lib/constants";
+import { useSectionSound } from "@/hooks/useSectionSound";
 
 export default function HeroSection() {
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
   const scrollCueRef = useRef(null);
+
+  // Cinematic spacecraft awakening sound
+  useSectionSound("awaken", sectionRef, { threshold: 0.1 });
 
   // Framer Motion scroll-linked transforms for the content container
   const { scrollYProgress } = useScroll({

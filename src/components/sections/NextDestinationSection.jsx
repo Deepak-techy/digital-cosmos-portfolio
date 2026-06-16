@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Mail, FileText, Radio, ArrowRight, RotateCcw, X, CheckCircle } from "lucide-react";
 import { PERSONAL, NEXT_DESTINATION } from "@/lib/constants";
 import SectionLabel from "@/components/ui/SectionLabel";
+import { useSectionSound } from "@/hooks/useSectionSound";
 
 // ─────────────────────────────────────────────────────────────
 // SVGs for GitHub and LinkedIn Icons
@@ -408,6 +409,9 @@ export default function NextDestinationSection() {
   const [formOpen, setFormOpen] = useState(false);
   const [warpActive, setWarpActive] = useState(false);
   const [creditsVisible, setCreditsVisible] = useState(false);
+
+  // Hopeful futuristic tone
+  useSectionSound("hopefulTone", sectionRef);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
