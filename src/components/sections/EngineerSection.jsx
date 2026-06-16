@@ -10,13 +10,13 @@ import { useSectionSound } from "@/hooks/useSectionSound";
 // ─────────────────────────────────────────────────────────────
 
 const NEURAL_NODES = [
-  { id: "projects", label: "Projects", angle: -75, description: "Every line of code written with intent" },
-  { id: "internships", label: "Internships", angle: -45, description: "Real-world problems, real solutions" },
-  { id: "hackathons", label: "Hackathons", angle: -15, description: "Innovation under pressure" },
-  { id: "leadership", label: "Leadership", angle: 15, description: "Guiding teams toward shared vision" },
-  { id: "research", label: "Research", angle: 45, description: "Understanding the why behind the how" },
-  { id: "ai", label: "AI", angle: 75, description: "Teaching machines to think" },
-  { id: "development", label: "Development", angle: 105, description: "Building systems that scale and endure" },
+  { id: "projects", label: "Projects", angle: -75, description: "Built multiple full-stack and AI-powered applications, including EduOne, an academic ecosystem integrating PDF Q&A, resume analysis, planning, and community learning." },
+  { id: "internships", label: "Internships", angle: -45, description: "Gained hands-on industry experience through software development and cybersecurity internships, working on real-world projects and professional workflows." },
+  { id: "hackathons", label: "Hackathons", angle: -15, description: "Collaborated in competitive innovation challenges, rapidly transforming ideas into functional prototypes under strict time constraints." },
+  { id: "leadership", label: "Leadership", angle: 15, description: "Led development teams through project planning, task coordination, technical decision-making, and final presentations." },
+  { id: "research", label: "Research", angle: 45, description: "Explored machine learning and deep learning concepts through practical implementations, experimentation, and applied problem-solving projects." },
+  { id: "ai", label: "AI", angle: 75, description: "Developed intelligent applications using machine learning, deep learning, NLP, and generative AI technologies to solve real-world problems." },
+  { id: "development", label: "Development", angle: 105, description: "Built scalable web applications using modern technologies including React, Next.js, Node.js, Express.js, MongoDB, and cloud-based tools." },
 ];
 
 const CENTER_RADIUS_PCT = 42; // distance of outer nodes from center (%)

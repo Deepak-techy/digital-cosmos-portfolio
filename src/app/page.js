@@ -24,7 +24,6 @@ const ProjectsSection = dynamic(() => import("@/components/sections/ProjectsSect
 const AchievementsSection = dynamic(() => import("@/components/sections/AchievementsSection"), { ssr: false });
 const TechGalaxySection = dynamic(() => import("@/components/sections/TechGalaxySection"), { ssr: false });
 const ExperienceSection = dynamic(() => import("@/components/sections/ExperienceSection"), { ssr: false });
-const TestimonialsSection = dynamic(() => import("@/components/sections/TestimonialsSection"), { ssr: false });
 const NextDestinationSection = dynamic(() => import("@/components/sections/NextDestinationSection"), { ssr: false });
 
 export default function Home() {
@@ -56,7 +55,6 @@ export default function Home() {
           <AchievementsSection />
           <TechGalaxySection />
           <ExperienceSection />
-          <TestimonialsSection />
           <NextDestinationSection />
         </main>
 

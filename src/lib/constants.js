@@ -1,6 +1,6 @@
 // ─────────────────────────────────────────────────────────────
 // DIGITAL COSMOS — Content Data & Constants
-// Replace placeholder content with your real information
+// Authentic information for Deepak Chandra Kalita
 // ─────────────────────────────────────────────────────────────
 
 export const SITE_CONFIG = {
@@ -18,13 +18,14 @@ export const PERSONAL = {
   middleName: "CHANDRA",
   lastName: "KALITA",
   role: "Software Engineer",
-  tagline: "Building intelligent systems\nfor the next generation.",
-  email: "deepak@example.com",
-  resumeUrl: "/resume.pdf",
+  tagline: "Every project is a step in the journey. Every challenge shapes the engineer.\nBuilding the systems that power tomorrow's digital experiences.",
+  email: "deepakkalita102@gmail.com",
+  resumeUrl: "/Deepak_Resume.pdf",
   socials: {
-    github: "https://github.com/deepak",
-    linkedin: "https://linkedin.com/in/deepak",
-    twitter: "https://twitter.com/deepak",
+    github: "https://github.com/Deepak-techy",
+    linkedin: "https://www.linkedin.com/in/deepak-kalita-88aa90252",
+    twitter: "https://x.com/DeepakKalitaa",
+    leetcode: "https://leetcode.com/u/DeKUser1/",
   },
 };
 
@@ -51,7 +52,6 @@ export const ORIGIN = {
       summary:
         "A clean utility to convert between Celsius, Fahrenheit, and Kelvin — the first spark of building something functional from scratch.",
       tech: ["Python", "CLI"],
-      // Position in the star field (percentage of container)
       position: { x: 18, y: 32 },
       size: "sm",
     },
@@ -86,8 +86,8 @@ export const ORIGIN = {
       id: "origin-5",
       title: "Prodigy Infotech Internship",
       summary:
-        "Professional internship experience applying Python skills to real-world problems. A turning point from learning to building.",
-      tech: ["Python", "Data Analysis", "Professional Dev"],
+        "Software Development Internship (15th June 2024 – 15th July 2024). Focused on solving real-world challenges, software workflows, and building professional experience.",
+      tech: ["Python", "Software Development", "Professional Dev"],
       position: { x: 78, y: 65 },
       size: "md",
     },
@@ -113,46 +113,36 @@ export const GROWTH = {
       title: "AI Trip Planner",
       summary:
         "An intelligent travel planning assistant powered by AI that generates personalized itineraries based on user preferences and constraints.",
-      tech: ["Python", "LLM", "API Integration", "Streamlit"],
+      tech: ["React", "Tailwind CSS", "Gemini AI API", "Google Places API"],
       position: { x: 65, y: 20 },
       size: "lg",
     },
     {
       id: "growth-3",
-      title: "Warehouse Management System",
-      summary:
-        "A full-stack inventory management platform with real-time tracking, automated reordering, and analytics dashboards.",
-      tech: ["React", "Node.js", "MongoDB", "REST API"],
-      position: { x: 50, y: 50 },
-      size: "xl",
-    },
-    {
-      id: "growth-4",
       title: "Smart India Hackathon",
       summary:
-        "National-level hackathon project solving a real government challenge. Built a prototype under extreme time pressure with a cross-functional team.",
-      tech: ["Full Stack", "AI/ML", "Teamwork", "Presentation"],
+        "Led a development team as Team Lead to build and present an AI-powered academic ecosystem. Rapidly prototyped a unified educational platform under SIH guidelines.",
+      tech: ["Team Lead", "Full Stack", "AI/ML", "Presentation"],
       position: { x: 30, y: 70 },
       size: "lg",
     },
     {
-      id: "growth-5",
+      id: "growth-4",
       title: "Deep Learning Projects",
       summary:
-        "A series of advanced neural network implementations — from image classification to natural language processing and generative models.",
+        "A series of advanced neural network implementations — from image classification to natural language processing and computer vision models.",
       tech: ["PyTorch", "Transformers", "NLP", "Computer Vision"],
       position: { x: 75, y: 62 },
       size: "lg",
     },
   ],
-  // Constellation lines connecting achievements (index pairs)
+  // Constellation lines connecting growth achievements (index pairs)
   constellations: [
-    [0, 2], // Emotion Detection → Warehouse
-    [1, 2], // AI Trip Planner → Warehouse
-    [2, 3], // Warehouse → Smart India
-    [2, 4], // Warehouse → Deep Learning
-    [3, 4], // Smart India → Deep Learning
-    [0, 4], // Emotion Detection → Deep Learning
+    [0, 1], // Emotion Detection → AI Trip Planner
+    [1, 2], // AI Trip Planner → Smart India Hackathon
+    [2, 3], // Smart India Hackathon → Deep Learning Projects
+    [0, 3], // Emotion Detection → Deep Learning Projects
+    [1, 3], // AI Trip Planner → Deep Learning Projects
   ],
 };
 
@@ -198,8 +188,8 @@ export const EDUONE = {
     "Admin dashboard with analytics, user management, and content moderation",
   ],
   links: {
-    github: "https://github.com/example/eduone",
-    demo: "https://eduone.example.com",
+    github: "https://github.com/Deepak-techy/EduOne",
+    demo: "https://github.com/Deepak-techy/EduOne",
   },
   satellites: [
     {
@@ -314,46 +304,35 @@ export const ABOUT = {
 export const PROJECTS = [
   {
     id: "project-1",
-    title: "Nebula Engine",
+    title: "Digital Cosmos",
     description:
-      "A real-time data processing engine capable of handling millions of events per second with sub-millisecond latency. Built with event-driven architecture and optimized for cloud-native deployment.",
-    tech: ["Go", "Apache Kafka", "Redis", "Kubernetes"],
-    image: "/images/projects/nebula-engine.jpg",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/example",
+      "A futuristic, story-driven portfolio experience that visualizes my journey as a software engineer through an interactive digital universe. Features immersive animations, constellation-based storytelling, technology galaxies, project planets, and cinematic user interactions designed to transform a traditional portfolio into an exploration experience.",
+    tech: ["Next.js", "Tailwind CSS", "Framer Motion", "GSAP", "Lenis", "shadcn/ui", "JavaScript"],
+    image: "/images/projects/digital-cosmos.jpg",
+    liveUrl: "https://digital-cosmos-portfolio.vercel.app/",
+    githubUrl: "https://github.com/Deepak-techy/digital-cosmos-portfolio.git",
     featured: true,
   },
   {
     id: "project-2",
-    title: "Stellar Dashboard",
+    title: "AI Trip Planner",
     description:
-      "An analytics platform that transforms complex datasets into intuitive visual stories. Features real-time collaboration, custom chart builders, and AI-powered insights.",
-    tech: ["React", "D3.js", "Node.js", "PostgreSQL"],
-    image: "/images/projects/stellar-dashboard.jpg",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/example",
+      "An AI-powered travel planning application that generates personalized trip itineraries based on user preferences, destination, duration, and budget. The platform helps travelers discover destinations, organize schedules, and plan trips more efficiently using intelligent recommendations.",
+    tech: ["React", "Tailwind CSS", "Gemini AI API", "Firebase", "Google Places API"],
+    image: "/images/projects/ai-trip-planner.jpg",
+    liveUrl: "https://ai-trip-planner-tawny-eight.vercel.app/",
+    githubUrl: "https://github.com/Deepak-techy/ai-trip-planner.git",
     featured: true,
   },
   {
     id: "project-3",
-    title: "Quantum Auth",
+    title: "QuickLink URL Shortener",
     description:
-      "A zero-trust authentication framework implementing cutting-edge cryptographic protocols. Designed for enterprise-grade security with developer-friendly APIs.",
-    tech: ["Rust", "WebAuthn", "OAuth 2.0", "Docker"],
-    image: "/images/projects/quantum-auth.jpg",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/example",
-    featured: true,
-  },
-  {
-    id: "project-4",
-    title: "Cosmos CLI",
-    description:
-      "A developer productivity toolkit that automates repetitive workflows, generates boilerplate, and integrates with major cloud providers through a unified interface.",
-    tech: ["TypeScript", "Node.js", "AWS SDK", "CLI"],
-    image: "/images/projects/cosmos-cli.jpg",
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/example",
+      "A modern URL shortening platform that converts long URLs into concise, shareable links while providing a clean user experience. Designed with scalability and simplicity in mind, enabling users to create, manage, and share shortened links efficiently.",
+    tech: ["React", "Node.js", "MongoDB", "Tailwind CSS", "REST API"],
+    image: "/images/projects/quicklink.jpg",
+    liveUrl: "https://quick-link-url-shortner.vercel.app/",
+    githubUrl: "https://github.com/Deepak-techy/QuickLink_Url_Shortner.git",
     featured: true,
   },
 ];
@@ -361,31 +340,31 @@ export const PROJECTS = [
 export const ACHIEVEMENTS = [
   {
     id: "ach-1",
-    icon: "Trophy",
-    title: "50+ Projects Delivered",
-    description: "Successfully shipped production-grade applications across multiple domains and industries.",
-    metric: "50+",
+    icon: "GraduationCap",
+    title: "8.92 CGPA",
+    description: "Maintaining strong academic performance in Computer Science & Engineering.",
+    metric: "8.92",
   },
   {
     id: "ach-2",
-    icon: "Users",
-    title: "1M+ Users Impacted",
-    description: "Built systems serving millions of users with 99.9% uptime and exceptional performance.",
-    metric: "1M+",
+    icon: "Code2",
+    title: "100+ LeetCode Solved",
+    description: "Strengthening problem-solving skills through consistent algorithmic practice.",
+    metric: "100+",
   },
   {
     id: "ach-3",
-    icon: "GitBranch",
-    title: "Open Source Contributor",
-    description: "Active contributor to major open-source projects with thousands of stars on GitHub.",
-    metric: "2K+",
+    icon: "Briefcase",
+    title: "3+ Internships",
+    description: "Gained industry experience in software development and cybersecurity.",
+    metric: "3+",
   },
   {
     id: "ach-4",
-    icon: "Award",
-    title: "Engineering Excellence",
-    description: "Recognized for technical leadership, mentoring, and driving architectural best practices.",
-    metric: "5x",
+    icon: "Users",
+    title: "Hackathon Organizer",
+    description: "Planned and coordinated a technical competition during the annual college fest.",
+    metric: "1x",
   },
 ];
 
@@ -401,8 +380,8 @@ export const TECH_GALAXY = {
           id: "react",
           name: "React",
           years: "2+",
-          projectCount: 8,
-          relatedProjects: ["Stellar Dashboard", "Warehouse Management System", "EduOne"],
+          projectCount: 3,
+          relatedProjects: ["AI Trip Planner", "QuickLink URL Shortener", "EduOne"],
           color: "#61DAFB",
           size: 14,
         },
@@ -410,8 +389,8 @@ export const TECH_GALAXY = {
           id: "python",
           name: "Python",
           years: "2+",
-          projectCount: 10,
-          relatedProjects: ["Emotion Detection", "AI Trip Planner", "Web Scraping", "Sudoku Solver"],
+          projectCount: 6,
+          relatedProjects: ["Emotion Detection", "AI Trip Planner", "Web Scraping", "Sudoku Solver", "IIT Guwahati Research Internship"],
           color: "#3776AB",
           size: 14,
         },
@@ -419,8 +398,8 @@ export const TECH_GALAXY = {
           id: "nodejs",
           name: "Node.js",
           years: "2+",
-          projectCount: 6,
-          relatedProjects: ["Warehouse Management System", "EduOne", "Nebula Engine"],
+          projectCount: 2,
+          relatedProjects: ["QuickLink URL Shortener", "EduOne"],
           color: "#539E43",
           size: 13,
         },
@@ -428,8 +407,8 @@ export const TECH_GALAXY = {
           id: "nextjs",
           name: "Next.js",
           years: "1+",
-          projectCount: 4,
-          relatedProjects: ["Digital Cosmos", "Stellar Dashboard"],
+          projectCount: 1,
+          relatedProjects: ["Digital Cosmos"],
           color: "#FFFFFF",
           size: 12,
         },
@@ -444,8 +423,8 @@ export const TECH_GALAXY = {
           id: "express",
           name: "Express.js",
           years: "2+",
-          projectCount: 5,
-          relatedProjects: ["Warehouse Management System", "EduOne", "Quantum Auth"],
+          projectCount: 2,
+          relatedProjects: ["QuickLink URL Shortener", "EduOne"],
           color: "#FFFFFF",
           size: 10,
         },
@@ -453,8 +432,8 @@ export const TECH_GALAXY = {
           id: "mongodb",
           name: "MongoDB",
           years: "2+",
-          projectCount: 5,
-          relatedProjects: ["Warehouse Management System", "EduOne", "Contact Management"],
+          projectCount: 2,
+          relatedProjects: ["QuickLink URL Shortener", "EduOne"],
           color: "#47A248",
           size: 11,
         },
@@ -462,8 +441,8 @@ export const TECH_GALAXY = {
           id: "tailwind",
           name: "Tailwind CSS",
           years: "1+",
-          projectCount: 5,
-          relatedProjects: ["Digital Cosmos", "EduOne", "Stellar Dashboard"],
+          projectCount: 4,
+          relatedProjects: ["Digital Cosmos", "EduOne", "AI Trip Planner", "QuickLink URL Shortener"],
           color: "#06B6D4",
           size: 10,
         },
@@ -471,7 +450,7 @@ export const TECH_GALAXY = {
           id: "flask",
           name: "Flask",
           years: "1+",
-          projectCount: 3,
+          projectCount: 2,
           relatedProjects: ["AI Trip Planner", "Emotion Detection"],
           color: "#FFFFFF",
           size: 9,
@@ -487,8 +466,8 @@ export const TECH_GALAXY = {
           id: "ml",
           name: "Machine Learning",
           years: "1+",
-          projectCount: 4,
-          relatedProjects: ["Emotion Detection", "Deep Learning Projects", "Smart India Hackathon"],
+          projectCount: 3,
+          relatedProjects: ["Emotion Detection", "Smart India Hackathon", "IIT Guwahati Research Internship"],
           color: "#FF6F61",
           size: 11,
         },
@@ -496,8 +475,8 @@ export const TECH_GALAXY = {
           id: "dl",
           name: "Deep Learning",
           years: "1+",
-          projectCount: 3,
-          relatedProjects: ["Emotion Detection", "Deep Learning Projects"],
+          projectCount: 2,
+          relatedProjects: ["Emotion Detection", "IIT Guwahati Research Internship"],
           color: "#A78BFA",
           size: 11,
         },
@@ -505,7 +484,7 @@ export const TECH_GALAXY = {
           id: "genai",
           name: "Generative AI",
           years: "1+",
-          projectCount: 3,
+          projectCount: 2,
           relatedProjects: ["AI Trip Planner", "EduOne"],
           color: "#F59E0B",
           size: 10,
@@ -514,7 +493,7 @@ export const TECH_GALAXY = {
           id: "git",
           name: "Git",
           years: "2+",
-          projectCount: 12,
+          projectCount: 5,
           relatedProjects: ["All Projects"],
           color: "#F05032",
           size: 9,
@@ -540,71 +519,43 @@ export const TECH_GALAXY = {
 export const EXPERIENCE = [
   {
     id: "exp-1",
-    company: "Stellar Systems Inc.",
-    role: "Senior Software Engineer",
-    period: "2023 — Present",
+    company: "IIT Guwahati",
+    role: "Research Intern — Monocular Depth Estimation",
+    period: "Jun 2025 – Aug 2025",
     description:
-      "Leading the architecture and development of cloud-native platforms serving enterprise clients. Spearheading the migration to microservices, reducing deployment time by 70% and improving system reliability to 99.99%.",
+      "Researched computer vision techniques for monocular depth estimation using deep learning architectures.",
     highlights: [
-      "Architected event-driven platform processing 2M+ events/day",
-      "Led team of 8 engineers across 3 product verticals",
-      "Reduced infrastructure costs by 45% through optimization",
+      "Trained and evaluated deep learning models for depth prediction from RGB imagery using the NYU Depth V2 dataset.",
+      "Investigated state-of-the-art model architectures and optimization strategies to improve depth estimation accuracy.",
     ],
   },
   {
     id: "exp-2",
-    company: "Nexus Technologies",
-    role: "Full Stack Developer",
-    period: "2021 — 2023",
+    company: "Arodos Technologies",
+    role: "Web Development Intern",
+    period: "Jul 2025 – Jul 2025",
     description:
-      "Built and maintained customer-facing applications and internal tools. Collaborated with design and product teams to deliver features that increased user engagement by 60%.",
+      "Built and optimized responsive web applications, collaborating on features, debugging, and performance.",
     highlights: [
-      "Developed real-time collaboration features for 100K+ users",
-      "Built CI/CD pipelines reducing release cycles from weeks to hours",
-      "Implemented comprehensive testing strategy achieving 95% coverage",
+      "Built responsive web applications using modern frameworks and tools, improving speed and accessibility.",
+      "Collaborated on feature development, API integration, and user-centric design enhancements.",
     ],
   },
   {
     id: "exp-3",
-    company: "Digital Forge",
-    role: "Software Developer",
-    period: "2019 — 2021",
+    company: "NIELIT",
+    role: "Cybersecurity Intern",
+    period: "Jul 2024 – Jul 2024",
     description:
-      "Started as a junior developer and rapidly grew into a key contributor. Focused on frontend architecture and performance optimization across multiple client projects.",
+      "Explored cybersecurity fundamentals, working with network security and threat mitigation tools.",
     highlights: [
-      "Improved Core Web Vitals scores by 40% across all projects",
-      "Built reusable component library adopted by 5 product teams",
-      "Mentored 3 junior developers through onboarding program",
+      "Explored network security, vulnerability assessment, threat mitigation, and system security fundamentals.",
+      "Hands-on practice with security tools to analyze real-world cyber defense mechanisms and best practices.",
     ],
   },
 ];
 
-export const TESTIMONIALS = [
-  {
-    id: "test-1",
-    quote:
-      "Deepak doesn't just write code — he architects solutions. His ability to see the bigger picture while maintaining attention to detail is rare and invaluable.",
-    name: "Sarah Chen",
-    title: "VP of Engineering",
-    company: "Stellar Systems",
-  },
-  {
-    id: "test-2",
-    quote:
-      "Working with Deepak transformed how our team approaches technical challenges. His code is clean, his systems are resilient, and his communication is exceptional.",
-    name: "Marcus Rivera",
-    title: "CTO",
-    company: "Nexus Technologies",
-  },
-  {
-    id: "test-3",
-    quote:
-      "The attention to craft that Deepak brings to every project is extraordinary. He elevated our entire engineering culture through his work and mentorship.",
-    name: "Anika Patel",
-    title: "Product Director",
-    company: "Digital Forge",
-  },
-];
+export const TESTIMONIALS = []; // Testimonials removed completely
 
 export const NEXT_DESTINATION = {
   title: "NEXT DESTINATION",
